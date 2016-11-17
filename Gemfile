@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem "font-awesome-rails"
+gem "bootstrap-sass"
 gem 'pundit'
 gem 'screencap'
 gem "devise"
