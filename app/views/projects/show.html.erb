@@ -1,7 +1,7 @@
 <% title(@project.name, "Projects") %>
 
 <header>
-    <h1><%= @project.name %></h1>
+  <h1><%= @project.name %></h1>
 
   <ul class="actions">
     <% if policy(@project).update? %>
@@ -14,8 +14,9 @@
     <% end %>
   </ul>
 </header>
-  <p><%= @project.description %></p>
+<p><%= @project.description %></p>
 
+<header>
   <h2>Tickets</h2>
 
   <ul id="tickets">
@@ -26,6 +27,9 @@
     <% end %>
   </ul>
 
-  <% if policy(Ticket.new(project: @project)).create? %>
-  <%= link_to "New Ticket", new_project_ticket_path(@project) %>
-  <% end %>
+  <ul class="actions">
+    <% if policy(Ticket.new(project: @project)).create? %>
+    <li><%= link_to "New Ticket", new_project_ticket_path(@project), class: "new "%></li>
+    <% end %>
+  </ul>
+</header>
