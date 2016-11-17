@@ -33,6 +33,12 @@
             <%= link_to "Home", root_path %>
           </li>
 
+          <% admins_only do %>
+            <li>
+              <%= link_to "Admin", admin_root_path %>
+            </li>
+          <% end %>
+          
           <% unless user_signed_in? %>
           <li class="<%= "active" if current_page?("/users/sign_up") %>">
             <%= link_to "Sign up", new_user_registration_path %>
@@ -43,20 +49,17 @@
           <% end %>
         </ul>
 
-          <% if user_signed_in? %>
-          <div class="navbar-right">
-            <p class="navbar-text">
-              Signed in as <%= current_user.email %>
-            </p>
-            <ul class="nav navbar-nav">
-              <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
-            </ul>
-          </div>
-          <% end %>
+        <% if user_signed_in? %>
+        <div class="navbar-right">
+          <p class="navbar-text">
+            Signed in as <%= current_user.email %>
+          </p>
+          <ul class="nav navbar-nav">
+            <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </div>
+        <% end %>
 
-          <% admins_only do %>
-          <li><%= link_to "Admin", admin_root_path %></li>
-          <% end %>
 
       </div>
 
