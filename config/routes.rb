@@ -5,12 +5,18 @@ Rails.application.routes.draw do
     root "application#index"
 
     resources :projects, only: [:new, :create, :destroy]
+    
     resources :users do
       member do
         patch :archive
       end
     end
-    resources :states, only: [:index, :new, :create]
+
+    resources :states, only: [:index, :new, :create] do
+      member do
+        get :make_default
+      end
+    end
 
   end
 
