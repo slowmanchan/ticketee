@@ -17,6 +17,7 @@
   </header>
 
   <table id="attributes">
+
     <tr>
       <th>Author: </th>
       <td><%= @ticket.author.email %></td>
@@ -29,6 +30,12 @@
       <tr>
         <th>State:</th>
         <td><%= render @ticket.state %></td>
+      </tr>
+    <% end %>
+    <% if @ticket.tags.any? %>
+      <tr id="tags">
+        <th>Tags:</th>
+        <td><%= render @ticket.tags %></td>
       </tr>
     <% end %>
   </table>
