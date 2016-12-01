@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem "searcher", github: "radar/searcher"
 gem "carrierwave"
 gem "font-awesome-rails"
 gem "bootstrap-sass"
