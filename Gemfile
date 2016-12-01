@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.2.4"
 
 gem "searcher", github: "radar/searcher"
 gem "carrierwave"
@@ -63,6 +64,7 @@ group :development do
 end
 
 group :production do
+  gem "puma"
   gem "pg"
   gem "rails_12factor"
 end
